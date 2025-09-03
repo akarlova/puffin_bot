@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My resume</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style th:utext="${inlineCss}"></style>
+</head>
+<body>
+<!-- Wrapper -->
+<div class="wrapper">
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- My info -->
+        <div class="my-info">
+            <div class="my-info-title">
+                <h1 class="my-name" th:text="${fullName}">Имя Фамилия</h1>
+                <p class="delimiter">__________________</p>
+                <h2 class="my-profession" th:text="${position}">Trainee Java Developer</h2>
+            </div>
+
+            <p class="my-desc" th:text="${about}">
+                Мне нравится, когда код компилируется. И не нравится, когда не
+                компилируется...
+            </p>
+        </div>
+        <!-- My projects -->
+        <div class="my-projects-container">
+            <h3 class="my-projects-title">Проекты</h3>
+            <ol class="my-projects-list">
+                <li class="my-projects-item" th:each="p,idx : ${projects}">
+                    <a
+                            class="my-projects-item-link"
+                            th:href="${p.url}" th:text="${p.url}"
+                    >https://example.com</a
+                    >
+					 <span class="dots-fill" aria-hidden="true"></span>
+                    <span class="my-projects-item-link-tech"
+					th:text="${' [ ' + #strings.listJoin(p.techs, ', ') + ' ]'}"
+                    >[ Java, Spring Boot ]</span
+                    >
+                </li>           
+            </ol>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="work-experience-section"
+             th:if="${!#lists.isEmpty(work)}">
+            <h3 class="work-experience-title">Опыт работы</h3>
+            <!-- Company -->
+            <div class="work-experience-container" th:each="w : ${work}">
+                <h4 class="work-experience-position">
+                    <span th:text="${w.position}">Должность</span>
+					<span class="work-experience-period-divider">|</span>
+                    <span class="work-experience-period"
+					th:text="${w.period}"
+                    >Период</span
+                    >
+                    <p class="company-name" th:text="${w.company}">Компания</p>
+                </h4>
+
+                <ul class="work-experience-duties-list"
+                    th:if="${!#lists.isEmpty(w.duties)}">
+                    <li class="work-experience-duties-item"
+					th:each="d : ${w.duties}" th:text="${d}">
+                        Обязанность
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Education -->
+        <div class="education-section"
+             th:if="${!#lists.isEmpty(education)}">
+            <h3 class="education-title">Образование</h3>
+            <!-- University/Other -->
+            <div class="education-container"
+			th:each="e : ${education}">
+                <p class="education-university"
+				th:text="${e.university}">
+                   Университет
+                </p>
+                <p class="education-period">
+              <span class="education-faculty"
+			  th:text="${e.faculty}"
+              >Факультет / Специальность</span
+              >
+                    <span class="education-period-divider">|</span> 
+            
+					<span th:text="${e.period}">Период обучения</span>
+                </p>
+            </div>
+        
+        </div>
+		
+        <!-- Hobbies -->
+        <div th:if="${!#lists.isEmpty(hobbies)}">
+            <h3 class="hobbies-title">Хобби</h3>
+            <div class="hobbies-container">
+                <p class="hobbies-list"
+				 th:text="${#strings.listJoin(hobbies, ', ')}">
+                    Путешествия, Leetcode, китайская культура
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <img
+                class="my-photo"
+                th:if="${photoDataUrl}"
+                th:src="${photoDataUrl}"
+                alt="photo"
+                width="340"
+        />
+
+        <div class="sidebar-content">
+            <!-- Contacts -->
+            <div class="contacts-container">
+                <h3 class="contacts-title">Контакты</h3>
+                <p class="contacts-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a class="contacts-link" th:href="|tel:${phone}|" th:text="${phone}"
+                    >+00 000 000 00 00</a
+                    >
+                </p>
+                <p class="contacts-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="contacts-link" th:href="|mailto:${email}|" th:text="${email}"
+                    >you@email.com</a
+                    >
+                </p>
+                <p class="contacts-item"
+                   th:if="${telegram}">
+                    <i class="fa-brands fa-telegram"></i>
+                    <a class="contacts-link"
+                       th:href="|https://t.me/${#strings.replace(telegram,'@','')}|"
+                       th:text="${telegram}"
+                    >@yourhandle</a
+                    >
+                </p>
+                <p class="contacts-item">
+                    <i class="fa-brands fa-github"></i>
+                    <a class="contacts-link"
+                       th:href="${github}"
+                       th:text="${github}"
+                    >github.com/yourname</a
+                    >
+                </p>
+                <p class="contacts-item"
+                   th:if="${linkedin}">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a
+                            class="contacts-link"
+                            th:href="${linkedin}"
+                            th:text="${linkedin}"
+                    >linkedin.com/in/yourname</a
+                    >
+                </p>
+
+                <p class="contacts-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span class="contacts-link-geo" th:text="${geo}">City, Country</span>
+                </p>
+            </div>
+            <!-- Tech skills -->
+            <div class="skills-container">
+                <h3 class="skills-title">Tech Skills</h3>
+                <ul class="skills-list" th:if="${techSkills}">
+                    <li class="skills-list-item" th:each="s : ${techSkills}" th:text="${s}">Java</li>
+                </ul>
+            </div>
+
+            <!-- Soft skills -->
+            <div class="skills-container">
+                <h3 class="skills-title">Soft Skills</h3>
+                <ul class="skills-list" th:if="${softSkills}">
+                    <li class="skills-list-item" th:each="s : ${softSkills}" th:text="${s}">Scrum</li>
+                </ul>
+            </div>
+            <!-- Languages -->
+            <div class="skills-container"
+                 th:if="${!#lists.isEmpty(languages)}">
+                <h3 class="skills-title">Языки</h3>
+                <ul class="langs" id="lang-list">
+                    <li class="lang-item"
+                        th:each="lang : ${languages}"
+                        th:attr="data-name=${lang.name},
+                                 data-level=${lang.level},
+                                 data-cefr=${lang.cefr}"
+                        >
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </aside>
+</div>
+<!--JS script for Languages-->
+<script th:inline="none">
+    (function renderLanguageDots() {
+        const mapCEFR = {A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 5, NATIVE: 5};
+        const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+        const toDots = (level) =>
+            Array.from(
+                {length: 5},
+                (_, i) =>
+                    `<i class="${
+                        i < level ? 'fa-solid' : 'fa-regular'
+                    } fa-circle"></i>`
+            ).join('');
+
+        document.querySelectorAll('.lang-item').forEach((li) => {
+            const rawLevel = li.dataset.level;
+            const rawCefr = (li.dataset.cefr || '').trim().toUpperCase();
+            const level =
+                rawLevel !== undefined && rawLevel !== ''
+                    ? clamp(+rawLevel || 0, 0, 5)
+                    : mapCEFR[rawCefr] || 0;
+
+            const name = li.dataset.name || '';
+            li.innerHTML = `<span class="name">${name}</span>
+           <span class="dots" aria-label="${level}/5">${toDots(level)}</span>`;
+        });
+    })();
+</script>
+</body>
+</html>

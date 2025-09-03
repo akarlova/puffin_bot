@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My resume</title>
+
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com" />-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />-->
+<!--    <link-->
+<!--            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"-->
+<!--            rel="stylesheet"-->
+<!--    />-->
+<!--    <link-->
+<!--            rel="stylesheet"-->
+<!--            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"-->
+<!--    />-->
+
+    <link rel="stylesheet" href="css/styles-green.css" />
+
+
+</head>
+<body>
+<!-- Wrapper -->
+<div class="wrapper">
+    <!-- Main content -->
+    <div class="main-content">
+        <!-- My info -->
+        <div class="my-info">
+            <div class="my-info-title">
+                <h1 class="my-name" th:text="${fullName}">Имя Фамилия</h1>
+                <p class="delimiter">__________________</p>
+                <h2 class="my-profession">Junior Java Developer</h2>
+            </div>
+
+            <p class="my-desc">
+                Мне нравится, когда код компилируется. И не нравится, когда не
+                компилируется...
+            </p>
+        </div>
+        <!-- My projects -->
+        <div class="my-projects-container">
+            <h3 class="my-projects-title">Проекты</h3>
+            <ol class="my-projects-list">
+                <li class="my-projects-item">
+                    <a
+                            class="my-projects-item-link"
+                            href="https://hellen.p.goit.global/"
+                            target="_blank"
+                    >https://hellen.p.goit.global/</a
+                    >
+                    <span class="my-projects-item-link-tech"
+                    >............................ [ HTML5, CSS3 ]</span
+                    >
+                </li>
+                <li class="my-projects-item">
+                    <a
+                            class="my-projects-item-link"
+                            href="https://cryptohub.p.goit.global/"
+                            target="_blank"
+                    >https://cryptohub.p.goit.global/</a
+                    >
+                    <span class="my-projects-item-link-tech"
+                    >..................... [ JavaScript ]</span
+                    >
+                </li>
+                <li class="my-projects-item">
+                    <a
+                            class="my-projects-item-link"
+                            href="https://kidslike.p.goit.global/"
+                            target="_blank"
+                    >https://kidslike.p.goit.global/</a
+                    >
+                    <span class="my-projects-item-link-tech"
+                    >......................... [ React.js, Node.js ]</span
+                    >
+                </li>
+            </ol>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="work-experience-section">
+            <h3 class="work-experience-title">Опыт работы</h3>
+            <!-- Company 1 -->
+            <div class="work-experience-container">
+                <h4 class="work-experience-position">
+                    Стажер <span class="work-experience-period-divider">|</span>
+                    <span class="work-experience-period"
+                    >сентябрь 2025 - текущее время</span
+                    >
+                    <p class="company-name">EPAM</p>
+                </h4>
+
+                <ul class="work-experience-duties-list">
+                    <li class="work-experience-duties-item">
+                        Пытаюсь программировать
+                    </li>
+                    <li class="work-experience-duties-item">
+                        Прохожу курс адаптации
+                    </li>
+                    <li class="work-experience-duties-item">
+                        Прохожу курс soft skills
+                    </li>
+                </ul>
+            </div>
+            <!-- Company 2 -->
+            <div class="work-experience-container">
+                <h4 class="work-experience-position">
+                    Ведущий экономист
+                    <span class="work-experience-period-divider">|</span>
+                    <span class="work-experience-period"
+                    >Июнь 2025 - текущее время</span
+                    >
+                    <p class="company-name">BestUA Corp.</p>
+                </h4>
+
+                <ul class="work-experience-duties-list">
+                    <li class="work-experience-duties-item">Аналитические расчеты</li>
+                    <li class="work-experience-duties-item">Работа с мотивациями</li>
+                    <li class="work-experience-duties-item">Работа с КРI</li>
+                </ul>
+            </div>
+            <!-- Company 3 -->
+            <div class="work-experience-container">
+                <h4 class="work-experience-position">
+                    Экономист <span class="work-experience-period-divider">|</span>
+                    <span class="work-experience-period"
+                    >Апрель 2021 - Июнь 2025</span
+                    >
+                    <p class="company-name">BestUA Corp.</p>
+                </h4>
+
+                <ul class="work-experience-duties-list">
+                    <li class="work-experience-duties-item">Отчеты в Excel</li>
+                    <li class="work-experience-duties-item">Работа с мотивациями</li>
+                    <li class="work-experience-duties-item">
+                        Взаимодействие с бухгалтерией
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Education -->
+        <div class="education-section">
+            <h3 class="education-title">Образование</h3>
+            <!-- University 1 -->
+            <div class="education-container">
+                <p class="education-university">
+                    Харьковский национальный университет им.Каразина (ХНУ)
+                </p>
+                <p class="education-period">
+              <span class="education-faculty"
+              >Факультет математики и информатики</span
+              >
+                    <span class="education-period-divider">|</span> Сентябрь 2024 -
+                    Июнь 2027
+                </p>
+            </div>
+            <!-- University 2 -->
+            <div class="education-container">
+                <p class="education-university">
+                    Днепропетровский национальный университет им.О.Гончара (ДНУ)
+                </p>
+
+                <p class="education-period">
+                    <span class="education-faculty">Экономический факультет</span>
+                    <span class="education-period-divider">|</span> Сентябрь 2006 -
+                    Июнь 2011
+                </p>
+            </div>
+        </div>
+        <!-- Hobbies -->
+        <div>
+            <h3 class="hobbies-title">Хобби</h3>
+            <div class="hobbies-container">
+                <p class="hobbies-list">
+                    Путешествия, Leetcode, китайская культура
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <img
+                class="my-photo"
+                th:if="${photoDataUrl}"
+                th:src="${photoDataUrl}"
+                alt="photo"
+                width="340"
+        />
+
+        <div class="sidebar-content">
+            <!-- Contacts -->
+            <div class="contacts-container">
+                <h3 class="contacts-title">Контакты</h3>
+                <p class="contacts-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <a class="contacts-link" href="tel:+380000000000"
+                    >+38 000 000 00 00</a
+                    >
+                </p>
+                <p class="contacts-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="contacts-link" href="mailto:you@email.com"
+                    >you@email.com</a
+                    >
+                </p>
+                <p class="contacts-item">
+                    <i class="fa-brands fa-telegram"></i>
+                    <a class="contacts-link" href="https://t.me/yourhandle"
+                    >@yourhandle</a
+                    >
+                </p>
+                <p class="contacts-item">
+                    <i class="fa-brands fa-github"></i>
+                    <a class="contacts-link" href="https://github.com/yourname"
+                    >github.com/yourname</a
+                    >
+                </p>
+
+                <p class="contacts-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="contacts-link-geo">Днепр, Украина</span>
+                </p>
+            </div>
+            <!-- Tech skills -->
+            <div class="skills-container">
+                <h3 class="skills-title">Tech Skills</h3>
+                <ul class="skills-list">
+                    <li class="skills-list-item">HTML5</li>
+                    <li class="skills-list-item">CSS3</li>
+                    <li class="skills-list-item">GIT</li>
+                    <li class="skills-list-item">WebPack</li>
+                    <li class="skills-list-item">JavaScript</li>
+                    <li class="skills-list-item">React.js</li>
+                    <li class="skills-list-item">Node.js</li>
+                </ul>
+            </div>
+
+            <!-- Soft skills -->
+            <div class="skills-container">
+                <h3 class="skills-title">Soft Skills</h3>
+                <ul class="skills-list">
+                    <li class="skills-list-item">Scrum</li>
+                    <li class="skills-list-item">Agile</li>
+                    <li class="skills-list-item">GTD</li>
+                    <li class="skills-list-item">Teamwork</li>
+                </ul>
+            </div>
+            <!-- Languages -->
+            <div class="skills-container">
+                <h3 class="skills-title">Языки</h3>
+                <ul class="langs" id="lang-list">
+                    <!-- Укажи ИЛИ data-level (0–5), ИЛИ data-cefr (A1…C2/Native) -->
+                    <li class="lang-item" data-name="Английский" data-cefr="B1"></li>
+                    <li class="lang-item" data-name="Русский" data-cefr="Native"></li>
+                    <li class="lang-item" data-name="Китайский" data-level="1"></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+</div>
+<!--JS script for Languages-->
+<!--<script>-->
+<!--    (function renderLanguageDots() {-->
+<!--        const mapCEFR = { A1: 1, A2: 2, B1: 3, B2: 4, C1: 5, C2: 5, NATIVE: 5 };-->
+<!--        const clamp = (n, min, max) => Math.max(min, Math.min(max, n));-->
+<!--        const toDots = (level) =>-->
+<!--            Array.from(-->
+<!--                { length: 5 },-->
+<!--                (_, i) =>-->
+<!--                    `<i class="${-->
+<!--                        i < level ? 'fa-solid' : 'fa-regular'-->
+<!--                    } fa-circle"></i>`-->
+<!--            ).join('');-->
+
+<!--        document.querySelectorAll('.lang-item').forEach((li) => {-->
+<!--            const rawLevel = li.dataset.level;-->
+<!--            const rawCefr = (li.dataset.cefr || '').trim().toUpperCase();-->
+<!--            const level =-->
+<!--                rawLevel !== undefined && rawLevel !== ''-->
+<!--                    ? clamp(+rawLevel || 0, 0, 5)-->
+<!--                    : mapCEFR[rawCefr] || 0;-->
+
+<!--            const name = li.dataset.name || '';-->
+<!--            li.innerHTML = `<span class="name">${name}</span>-->
+<!--           <span class="dots" aria-label="${level}/5">${toDots(level)}</span>`;-->
+<!--        });-->
+<!--    })();-->
+<!--</script>-->
+</body>
+</html>
